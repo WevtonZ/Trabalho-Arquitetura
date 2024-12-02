@@ -3,11 +3,12 @@
 #include <thread>
 #include "comp.hpp"
 
-#warning Para fins de teste, usar ms = 1. Ao acabar, usar 22.
+#warning Para fins de teste, usar MS = 2. Ao acabar, usar 22.
+const int MS = 2;
 
 using namespace std;
 
-void delayTexto(const string& texto, int delayMs = 1) {
+void delayTexto(const string& texto, int delayMs = MS) {
     for (char c : texto) {
         cout << c << flush;
         this_thread::sleep_for(chrono::milliseconds(delayMs));
@@ -55,7 +56,7 @@ void montarComputador() {
     int option;
     voltando:
 
-    delayTexto("Primeiro, para qual finalidade você procura um computador?\n(Por favor, insira um valor numérico no intervalo entre 1 a 5.");
+    delayTexto("Primeiro, para qual finalidade você procura um computador? (Por favor, insira um valor numérico no intervalo entre 1 a 5.\n");
     delayTexto("Digite 6 caso você queira sair do programa.");
     cout << endl;
 
@@ -64,7 +65,6 @@ void montarComputador() {
     cout << "3. Estudos." << endl;
     cout << "4. Pesquisas científicas." << endl;
     cout << "5. Inteligência Artificial." << endl;
-    cout << "6. Sair do programa." << endl;
 
     getline(cin, teste);
     
@@ -74,6 +74,8 @@ void montarComputador() {
         goto voltando;
     }
     option = stoi(teste);
+    
+    if(option <= 5 && option >= 1) limpaTela(); // limpar a tela caso o cara tenha escolhido uma opção válida.
 
     switch(option) {
         case 1:
@@ -98,7 +100,7 @@ void montarComputador() {
 
         case 6:                 // sair desse programa.
             delayTexto("Você decidiu sair do programa. Saindo");
-            delayTexto(".....", 120);
+            delayTexto(".....", 150);
             limpaTela();
             return;
 
@@ -110,6 +112,8 @@ void montarComputador() {
     }
 }
 void montaJogos() {
+    // delayTexto("Computadores destinados a Jogos, no geral, necessitam de bons processadores");
+    
 
 }
 void montaEstudos() {
@@ -122,9 +126,6 @@ void montaPesquisa() {
 
 }
 void montaIA() {
-
-}
-int eficiencia() {
 
 }
 bool verificaNumero(string const & s) {
