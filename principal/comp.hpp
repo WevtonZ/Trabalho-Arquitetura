@@ -26,16 +26,10 @@ void introTela(const string & nome);
 string getNome();
 
 void montaJogos();
-
 void montaEstudos();
-
 void montaEdicao();
-
 void montaPesquisa();
-
 void montaIA();
-
-int eficiencia();
 
 void delayTexto(const string& texto, int delayMs);
 
