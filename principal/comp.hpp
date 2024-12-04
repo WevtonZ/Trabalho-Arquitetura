@@ -1,6 +1,15 @@
 #include <string>
 using namespace std;
 
+class Computador{
+    public:
+    string processador, placaDeVideo, energia, desempenho, custo;
+};
+
+void computadorGenerico() {
+    
+}
+
 /**
  * @brief Abre o menu de montagem da máquina desejada pelo usuário.
  * 
