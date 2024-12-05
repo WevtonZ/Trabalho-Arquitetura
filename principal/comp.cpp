@@ -51,8 +51,48 @@ void limpaTela() {
     system("clear");
 }
 
-void computadorGenerico() {
-    
+
+bool verificaProcessador(string const & s) {
+    return s == "A" || s == "B" || s == "C" || s == "D" || s == "E";
+}
+
+Computador computadorGenerico() {
+    /*
+    o que eu preciso resolver em ordem:
+        processador (check)
+        placa de video
+        
+    */
+
+    limpaTela();
+    Computador comp;
+    string peca;
+    delayTexto("Primeiro, precisamos decidir qual o tipo de computador esperado para você.\n");
+
+    escolha1:
+
+    delayTexto("Qual processador você deseja ter?\n\n"
+        "A. Custo benefício.\n"
+        "B. Mediano.\n"
+        "C. Eficiente.\n"
+        "D. Muito eficiente.\n"
+        "E. Godlike.\n\n"
+        "Insira qual das letras representa melhor o tipo de processador você deseja: "
+    );
+
+    cin >> peca;
+    delayTexto("Processando...\n\n");
+    if(verificaProcessador(peca) == true) {
+        comp.setProcessador(peca);
+    }
+    else {
+        delayTexto("Hmm, não sei se entendi. Poderia escolher uma das opções apresentadas?\n\n");
+        limpaTela();
+        goto escolha1;
+    }
+    delayTexto("Processamento concluído! Podemos prosseguir para o próximo passo.\n\n"
+            "Qual o "
+    );
 }
 
 void montarComputador() {

@@ -2,13 +2,32 @@
 using namespace std;
 
 class Computador{
-    public:
+    private:
     string processador, placaDeVideo, energia, desempenho, custo;
+    public:
+
+    void setProcessador(string const & s){
+        this->processador = s;
+    }
+
+    void setPlaca(string const & s){
+        this->placaDeVideo = s;
+    }
+
+    void setEnergia(string const & s){
+        this->energia = s;
+    }
+
+    void setDesempenho(string const & s){
+        this->desempenho = s;
+    }
+
+    void setCusto(string const & s){
+        this->custo = s;
+    }
 };
 
-void computadorGenerico() {
-    
-}
+Computador computadorGenerico();
 
 /**
  * @brief Abre o menu de montagem da máquina desejada pelo usuário.
@@ -19,7 +38,7 @@ void montarComputador();
 /**
  * @brief Função pra limpar o prompt de comando.
  * 
- */
+ **/
 void limpaTela();
 
 /**
