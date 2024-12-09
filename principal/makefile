@@ -1,18 +1,21 @@
+# Variáveis
 CXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++17 
-TARGET = main
-
+CXXFLAGS = -std=c++17 -Wall -Wextra -Wpedantic
+LDFLAGS = 
 SRC = main.cpp comp.cpp
 OBJ = $(SRC:.cpp=.o)
+EXEC = main
 
-all: $(TARGET)
+# Regras
+all: $(EXEC)
 
-$(TARGET): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+$(EXEC): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
-%.o: %.cpp comp.hpp
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Limpeza
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f $(OBJ) $(EXEC)
+
+.PHONY: all clean
